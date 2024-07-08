@@ -10,11 +10,13 @@
     when: ansible_distribution in ["Ubuntu", "Debian"]
 
   - name: install apache2 package
+    tags: apache
     apt:
       name: apache2
     when: ansible_distribution in ["Ubuntu", "Debian"]
 
   - name: add php support for apache
+    tags: debian,php
     apt:
       name: libapache2-mod-php
       state: latest
